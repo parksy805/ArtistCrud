@@ -20,4 +20,9 @@ public class ArtistDao {
 		artists.add(new ArtistVo(4, "KimMinsuk", "exo"));
 	}
 
+	public List<ArtistVo> getAllArtists() {
+		// TODO Auto-generated method stub
+		return artists;
+	}
+	
 }
