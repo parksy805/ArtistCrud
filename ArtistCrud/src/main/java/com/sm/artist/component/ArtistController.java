@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sm.artist.vo.ArtistVo;
@@ -17,6 +19,12 @@ public class ArtistController {
 
 	@Autowired
 	private ArtistService artistService;
+	
+	@PostMapping("/artists")
+	public void registerArtist(@RequestBody ArtistVo artistvo) {
+		artistService.registerArtist(artistvo);
+		System.out.println("registerArtist함수 호출 성공");
+	}
 	
 	@GetMapping("/{artistGroup}")
 	public String getArtistByGroup(@PathVariable String artistGroup, Model model) {

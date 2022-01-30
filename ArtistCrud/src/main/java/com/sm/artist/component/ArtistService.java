@@ -23,4 +23,9 @@ public class ArtistService {
 		return artistDao.getArtistByGroup(artistGroup);
 	}
 
+	public void registerArtist(ArtistVo artistvo) {
+		// TODO Auto-generated method stub
+		artistDao.registerArtist(artistvo);
+	}
+
 }

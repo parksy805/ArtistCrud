@@ -35,5 +35,10 @@ public class ArtistDao {
 				.orElse(new ArtistVo(-1, "", "")); 
 				//없다면 새로운 ArtistVo객체 생성해서 리턴
 	}
+
+	public void registerArtist(ArtistVo artistVo) {
+		// TODO Auto-generated method stub
+		artists.add(artistVo);
+	}
 	
 }
