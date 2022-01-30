@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sm.artist.vo.ArtistVo;
@@ -16,6 +17,14 @@ public class ArtistController {
 
 	@Autowired
 	private ArtistService artistService;
+	
+	@GetMapping("/{artistGroup}")
+	public String getArtistByGroup(@PathVariable String artistGroup, Model model) {
+		model.addAttribute("artistGroup", artistService.getArtistByGroup(artistGroup));
+        // Request로 받은 artistGroup를 매개변수로 보내서 ArtistVo객체를 찾아서 호출
+        System.out.println("getArtistByGroup함수 호출 성공");
+		return "index2";
+	}
 
 	@GetMapping("/artists") // GET으로 모든 아티스트들의 정보를 json 반환
 	@ResponseBody // 자바 오브젝트를 자동으로 JSON으로 변환해서 리턴

@@ -18,4 +18,9 @@ public class ArtistService {
 		return artistDao.getAllArtists();
 	}
 
+	public ArtistVo getArtistByGroup(String artistGroup) {
+		// TODO Auto-generated method stub
+		return artistDao.getArtistByGroup(artistGroup);
+	}
+
 }

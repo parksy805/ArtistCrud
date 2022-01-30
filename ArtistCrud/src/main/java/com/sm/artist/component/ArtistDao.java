@@ -24,5 +24,16 @@ public class ArtistDao {
 		// TODO Auto-generated method stub
 		return artists;
 	}
+
+	public ArtistVo getArtistByGroup(String artistGroup) {
+		// TODO Auto-generated method stub
+		return artists		//List타입의 artists 변수에서
+				.stream()
+				.filter(a -> a.getArtistGroup().equals(artistGroup)) 
+				// Request로 받은 artistGroup와 동일한 ArtistGroup를 getter함
+				.findAny()
+				.orElse(new ArtistVo(-1, "", "")); 
+				//없다면 새로운 ArtistVo객체 생성해서 리턴
+	}
 	
 }
