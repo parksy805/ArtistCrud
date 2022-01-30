@@ -40,5 +40,18 @@ public class ArtistDao {
 		// TODO Auto-generated method stub
 		artists.add(artistVo);
 	}
+
+	public void modifyArtist(String artistName, ArtistVo artistVo) { 
+		// TODO Auto-generated method stub
+		artists
+		.stream()
+		.filter(artist -> artist.getArtistName().equals(artistName)) 
+        				//들어온 이름과 동일한 객체를 getter함
+		.findAny()
+		.orElse(new ArtistVo(-1, "", ""))
+		.setArtistGroup(artistVo.getArtistGroup()); 
+        			// 새로운 artistVo에 담긴 ArtistGroup을, 
+        			//찾은 객체의 ArtistGroup에 setter함
+	}
 	
 }

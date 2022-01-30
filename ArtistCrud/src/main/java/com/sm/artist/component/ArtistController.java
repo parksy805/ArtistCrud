@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -19,6 +20,12 @@ public class ArtistController {
 
 	@Autowired
 	private ArtistService artistService;
+	
+	@PutMapping("/{artistName}") // 아티스트 이름이 들어오면, (그 이름과 새 artistVo객체를 가져옴)
+	public void modifyArtist(@PathVariable String artistName, @RequestBody ArtistVo artistVo) {
+		artistService.modifyArtist(artistName, artistVo);
+		System.out.println("modifyArtist함수 호출 성공");
+	}
 	
 	@PostMapping("/artists")
 	public void registerArtist(@RequestBody ArtistVo artistvo) {

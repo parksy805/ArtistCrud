@@ -28,4 +28,9 @@ public class ArtistService {
 		artistDao.registerArtist(artistvo);
 	}
 
+	public void modifyArtist(String artistName, ArtistVo artistVo) {
+		// TODO Auto-generated method stub
+		artistDao.modifyArtist(artistName,artistVo);
+	}
+
 }
