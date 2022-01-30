@@ -53,5 +53,12 @@ public class ArtistDao {
         			// 새로운 artistVo에 담긴 ArtistGroup을, 
         			//찾은 객체의 ArtistGroup에 setter함
 	}
+
+	public void removeArtist(String artistName) {
+		// TODO Auto-generated method stub
+		artists.removeIf(artist -> artist.getArtistName().equals(artistName));
+		// removeIf(  ) : 만약()이면 artists에서 삭제하는데,
+        						//들어온 이름과 동일한 객체를 getter함
+	}
 	
 }

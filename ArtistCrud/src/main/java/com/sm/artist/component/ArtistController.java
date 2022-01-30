@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +21,12 @@ public class ArtistController {
 
 	@Autowired
 	private ArtistService artistService;
+	
+	@DeleteMapping("/{artistName}") // 아티스트 이름이 들어오면, (그 이름을 가져옴)
+	public void removeArtist(@PathVariable String artistName) {
+	    artistService.removeArtist(artistName);
+	    System.out.println("removeArtist함수 호출 성공");
+	}
 	
 	@PutMapping("/{artistName}") // 아티스트 이름이 들어오면, (그 이름과 새 artistVo객체를 가져옴)
 	public void modifyArtist(@PathVariable String artistName, @RequestBody ArtistVo artistVo) {

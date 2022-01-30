@@ -33,4 +33,9 @@ public class ArtistService {
 		artistDao.modifyArtist(artistName,artistVo);
 	}
 
+	public void removeArtist(String artistName) {
+		// TODO Auto-generated method stub
+		artistDao.removeArtist(artistName);
+	}
+
 }
